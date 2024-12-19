@@ -9,38 +9,41 @@ import java.util.Map;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/workintech")
+@RequestMapping("/workintech/animal")//animal eklemem kodları  çalıştrdı
 public class AnimalController {
+
     @Value("${course.name}")
     private String courseName;
-    @Value("${project.developer.fullname}")
 
-    private Map<Integer, Animal> animals= new HashMap<>();
-    //CRUD işlemleri burada olacak
+    @Value("${project.developer.fullname}")
+    private String developerName;  // eksik olan @Value anotasyonu düzeltildi
+
+    private Map<Integer, Animal> animals = new HashMap<>();
+
+    // CRUD işlemleri burada olacak
+
     @GetMapping
-    public Collection<Animal>getAllAnimals(){
+    public Collection<Animal> getAllAnimals() {
         return animals.values();
     }
-    @GetMapping("/{id}")
-    public Animal getAnimalById(@PathVariable int id){
-        return animals.get(id);
 
+    @GetMapping("/{id}")
+    public Animal getAnimalById(@PathVariable int id) {
+        return animals.get(id);
     }
+
     @PostMapping
-    public void addAnimal(@RequestBody Animal animal){
+    public void addAnimal(@RequestBody Animal animal) {
         animals.put(animal.getId(), animal);
     }
+
     @PutMapping("/{id}")
-    public void updateAnimal(@PathVariable int id,@RequestBody Animal animal){
+    public void updateAnimal(@PathVariable int id, @RequestBody Animal animal) {
         animals.put(id, animal);
     }
-    @DeleteMapping("{id}")
+
+    @DeleteMapping("/{id}")
     public void deleteAnimal(@PathVariable int id) {
-    animals.remove(id);
+        animals.remove(id);
     }
-
 }
-
-
-
-

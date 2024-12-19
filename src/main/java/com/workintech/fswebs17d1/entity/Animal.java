@@ -4,21 +4,29 @@ public class Animal {
     private int id;
     private String name;
 
-    public Animal(){}
-    public Animal(int id, String name){
-        this.id=id;
-        this.name=name;
+    // Parametresiz constructor
+    public Animal() {}
+
+    // Parametreli constructor
+    public Animal(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
-    public int getId(){
+
+    // Getter ve Setter metodları
+    public int getId() {
         return id;
     }
-    public void setId(int id){
-        this.id=id;
+
+    public void setId(int id) {
+        this.id = id;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    public void setName(String name){
-        this.name=name;
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
